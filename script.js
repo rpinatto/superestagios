@@ -9,6 +9,8 @@ function goTo(screenId) {
     const scroll = target.querySelector('.content-scroll');
     if (scroll) scroll.scrollTop = 0;
   }
+  // Toggle body class for login screen (hides sidebar on desktop)
+  document.body.classList.toggle('on-login', screenId === 'screen-login');
   closeSidebar();
 }
 
@@ -71,6 +73,8 @@ async function loadScreens() {
   }
 
   applyStoredTheme();
+  // Set initial body class for login screen
+  document.body.classList.add('on-login');
   initInteractions();
 }
 

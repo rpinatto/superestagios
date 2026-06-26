@@ -1151,3 +1151,130 @@ body.dark .btn-social { background: #273449; border-color: #334155; color: #cbd5
 body.dark .btn-social:hover { border-color: #3b82f6; }
 body.dark .signup-text { color: #64748b; }
 body.dark .login-footer a { color: #475569; }
+
+/* ===================================================
+   DESKTOP LAYOUT (≥ 1024px)
+   On larger screens: persistent left sidebar + content area
+   =================================================== */
+
+@media (min-width: 1024px) {
+  body {
+    background: #f0f2f5;
+    align-items: stretch;
+    justify-content: stretch;
+    flex-direction: row;
+    min-height: 100vh;
+    overflow: hidden;
+  }
+
+  body.dark { background: #0f172a; }
+
+  /* Persistent desktop sidebar */
+  .sidebar-overlay { display: none !important; }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 240px;
+    transform: translateX(0) !important;
+    transition: none;
+    z-index: 100;
+    border-right: 1px solid #e5e7eb;
+    box-shadow: none;
+  }
+
+  body.dark .sidebar { border-right-color: #334155; }
+
+  /* Hide hamburger on desktop */
+  .hamburger-btn { display: none !important; }
+
+  /* Main content pushed right of sidebar */
+  #screens-container {
+    margin-left: 240px;
+    width: calc(100vw - 240px);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Screens fill the space */
+  .screen {
+    flex: 1;
+    align-items: flex-start;
+    justify-content: flex-start;
+    min-height: 100vh;
+  }
+
+  .screen.active {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    background: #f0f2f5;
+    padding: 40px 24px;
+  }
+
+  body.dark .screen.active { background: #0f172a; }
+
+  /* Mobile frame becomes a centered card on desktop */
+  .mobile-frame {
+    width: 480px;
+    min-height: calc(100vh - 80px);
+    max-height: none;
+    border-radius: 20px;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+  }
+
+  body.dark .mobile-frame {
+    box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+  }
+
+  /* Login screen spans full area without card wrapper */
+  #screen-login.active {
+    padding: 0;
+    margin-left: 0;
+    width: 100vw;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* When login is active the sidebar should be hidden on desktop too */
+  #screen-login.active ~ * .sidebar { display: none; }
+
+  /* Filtros: full-width drawer feel on desktop */
+  #screen-filtros .mobile-frame {
+    width: 520px;
+  }
+
+  /* Wider layout for content-heavy screens */
+  #screen-estudos .mobile-frame,
+  #screen-salvos .mobile-frame,
+  #screen-perfil .mobile-frame,
+  #screen-config .mobile-frame {
+    width: 520px;
+  }
+
+  /* Desktop top bar */
+  .top-bar {
+    border-radius: 20px 20px 0 0;
+  }
+}
+
+/* Wide desktop: allow a 2-column layout for home */
+@media (min-width: 1280px) {
+  .mobile-frame {
+    width: 520px;
+  }
+
+  #screen-home .mobile-frame {
+    width: 560px;
+  }
+}
+
+/* Hide sidebar on desktop when on login screen */
+@media (min-width: 1024px) {
+  body.on-login .sidebar { display: none !important; }
+  body.on-login #screens-container { margin-left: 0; width: 100vw; }
+  body.on-login .screen.active { padding: 0; }
+}
