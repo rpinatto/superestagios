@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Super Concursos</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ===== SIDEBAR OVERLAY ===== -->
+  <div class="sidebar-overlay" id="sidebar-overlay" onclick="closeSidebar()"></div>
+
+  <!-- ===== SIDEBAR ===== -->
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-avatar"></div>
+      <div class="sidebar-user-info">
+        <div class="sidebar-name">Gabriel Rocha</div>
+        <div class="sidebar-plan">⭐ Premium Plus</div>
+      </div>
+      <button class="sidebar-close" onclick="closeSidebar()">✕</button>
+    </div>
+
+    <nav class="sidebar-nav">
+      <button class="sidebar-item" onclick="navTo('screen-home')">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+        Início
+      </button>
+      <button class="sidebar-item" onclick="navTo('screen-filtros')">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        Editais
+      </button>
+      <button class="sidebar-item" onclick="navTo('screen-estudos')">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        Estudos
+      </button>
+      <button class="sidebar-item" onclick="navTo('screen-salvos')">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+        Salvos
+      </button>
+      <button class="sidebar-item" onclick="navTo('screen-perfil')">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        Perfil
+      </button>
+    </nav>
+
+    <div class="sidebar-divider"></div>
+
+    <nav class="sidebar-nav">
+      <button class="sidebar-item" onclick="alert('Configurações')">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        Configurações
+      </button>
+      <button class="sidebar-item sidebar-item--danger" onclick="navTo('screen-login')">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        Sair
+      </button>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="sidebar-version">Super Concursos v2.0</div>
+    </div>
+  </div>
+
+  <!-- ===== TELA 1: LOGIN ===== -->
+  <div class="screen active" id="screen-login">
+    <div class="login-container">
+      <div class="login-card">
+        <div class="login-brand">
+          <span class="brand-name">Super Concursos</span>
+          <p class="brand-tagline">Bridging the gap to your professional success.</p>
+        </div>
+
+        <p class="login-welcome">Welcome back</p>
+
+        <div class="form-group">
+          <label>Email Address</label>
+          <div class="input-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></svg>
+            <input type="email" placeholder="name@example.com" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="label-row">
+            <label>Password</label>
+            <a href="#" class="forgot-link">Forgot password?</a>
+          </div>
+          <div class="input-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <input type="password" value="········" />
+            <svg class="eye-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+        </div>
+
+        <div class="checkbox-row">
+          <input type="checkbox" id="remember" />
+          <label for="remember">Remember me for 30 days</label>
+        </div>
+
+        <button class="btn-primary" onclick="goTo('screen-home')">LOGIN</button>
+
+        <div class="divider"><span>OR CONTINUE WITH</span></div>
+
+        <div class="social-row">
+          <button class="btn-social">
+            <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#EA4335" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+            Google
+          </button>
+          <button class="btn-social">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#0077B5"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            LinkedIn
+          </button>
+        </div>
+
+        <p class="signup-text">Don't have an account? <a href="#" onclick="goTo('screen-home')">Sign up for free</a></p>
+
+        <div class="login-footer">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Help Center</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== TELA 2: HOME / DASHBOARD ===== -->
+  <div class="screen" id="screen-home">
+    <div class="mobile-frame">
+      <div class="top-bar">
+        <button class="hamburger-btn" onclick="openSidebar()">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <span class="app-name">Super Concursos</span>
+        <div class="avatar-sm" onclick="goTo('screen-perfil')" style="cursor:pointer"></div>
+      </div>
+
+      <div class="content-scroll">
+        <div class="greeting-section">
+          <div class="streak-badge">🔥 7 DIAS</div>
+          <h2 class="greeting">BEM-VINDO DE VOLTA<br><strong>Olá, Gabriel!</strong></h2>
+          <p class="sub-greeting">Seu desempenho está 15% acima da média esta semana. Mantenha o foco!</p>
+
+          <div class="progress-card">
+            <div class="progress-label">
+              <span>⏰ Progresso Semanal</span>
+              <span class="progress-time">18h de 25h</span>
+            </div>
+            <div class="progress-bar"><div class="progress-fill" style="width:72%"></div></div>
+          </div>
+        </div>
+
+        <div class="section-header">
+          <span class="section-title">Concursos em Destaque</span>
+          <a href="#" class="see-all">Ver Todos</a>
+        </div>
+
+        <div class="cards-scroll">
+          <div class="highlight-card blue" onclick="goTo('screen-vaga')">
+            <span class="tag-edital">EDITAL ABERTO</span>
+            <div class="card-title">Polícia Federal</div>
+            <div class="card-sub">Agente e Escrivão • R$ 12.522,50</div>
+          </div>
+          <div class="highlight-card orange" onclick="goTo('screen-vaga')">
+            <span class="tag-inscricao">INSCRIÇÃO</span>
+            <div class="card-title">Receita Federal</div>
+            <div class="card-sub">Auditor Fiscal</div>
+          </div>
+        </div>
+
+        <div class="section-header">
+          <span class="section-title">Oportunidades para Você</span>
+          <a href="#" class="see-all">Ver Tudo →</a>
+        </div>
+
+        <div class="opp-list">
+          <div class="opp-card" onclick="goTo('screen-vaga')">
+            <div class="opp-icon bb"></div>
+            <div class="opp-info">
+              <div class="opp-name">Banco do Brasil</div>
+              <div class="opp-detail">Escriturário • 2.000 Vagas</div>
+              <div class="opp-salary">R$ 5.436,00</div>
+              <div class="opp-level">Nível Médio</div>
+            </div>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+          </div>
+          <div class="opp-card" onclick="goTo('screen-vaga')">
+            <div class="opp-icon inss"></div>
+            <div class="opp-info">
+              <div class="opp-name">INSS</div>
+              <div class="opp-detail">Técnico Seguro Social • 1.000 Vagas</div>
+              <div class="opp-salary">R$ 6.120,00</div>
+              <div class="opp-level">Nível Médio</div>
+            </div>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+          </div>
+        </div>
+
+        <div class="challenge-card">
+          <div class="challenge-title">Desafio do Dia</div>
+          <div class="challenge-desc">Responda 10 questões de Direito Administrativo sem erros para ganhar +50XP.</div>
+          <button class="btn-challenge" onclick="goTo('screen-estudos')">▶ Começar Agora</button>
+        </div>
+      </div>
+
+      <nav class="bottom-nav">
+        <button class="nav-item active" onclick="goTo('screen-home')">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+          <span>Início</span>
+        </button>
+        <button class="nav-item" onclick="goTo('screen-filtros')">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Editais</span>
+        </button>
+        <button class="nav-item" onclick="goTo('screen-estudos')">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          <span>Estudos</span>
+        </button>
+        <button class="nav-item" onclick="goTo('screen-salvos')">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+          <span>Salvos</span>
+        </button>
+        <button class="nav-item" onclick="goTo('screen-perfil')">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span>Perfil</span>
+        </button>
+      </nav>
+    </div>
+  </div>
+
+  <!-- ===== TELA 3: FILTROS AVANÇADOS ===== -->
+  <div class="screen" id="screen-filtros">
+    <div class="mobile-frame">
+      <div class="modal-header">
+        <button class="btn-back" onclick="goTo('screen-home')">✕</button>
+        <span class="modal-title">Filtros Avançados</span>
+        <button class="btn-clear">LIMPAR</button>
+      </div>
+
+      <div class="content-scroll">
+        <div class="filter-group">
+          <label class="filter-label">Estado</label>
+          <div class="select-box">
+            <span>Todos os estados</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <label class="filter-label">Área</label>
+          <div class="select-box">
+            <span>Todas as áreas</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <label class="filter-label">Nível de Escolaridade</label>
+          <div class="chips-row">
+            <span class="chip active">Superior</span>
+            <span class="chip">Médio</span>
+            <span class="chip">Fundamental</span>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <label class="filter-label">Banca Organizadora</label>
+          <div class="search-input">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="text" placeholder="Ex: FGV, CESPE, Vunesp..." />
+          </div>
+        </div>
+
+        <div class="filter-section-title">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Viabilidade Urbana
+        </div>
+
+        <div class="filter-group">
+          <label class="filter-label">Endereço de Partida</label>
+          <div class="address-options">
+            <div class="address-option selected">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+              Casa
+            </div>
+            <div class="address-option">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/></svg>
+              Faculdade
+            </div>
+          </div>
+          <div class="address-custom">
+            <span>Av. Paulista, 1578 - Bela Vista, SP</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <div class="time-row">
+            <label class="filter-label">Tempo máximo de deslocamento</label>
+            <span class="time-value">45 min</span>
+          </div>
+          <input type="range" min="10" max="120" value="45" class="range-slider" />
+          <p class="range-hint">Calculado com base no tráfego médio em horários de pico.</p>
+        </div>
+
+        <div class="filter-group">
+          <label class="filter-label">Modais de transporte</label>
+          <div class="transport-grid">
+            <label class="transport-item"><input type="checkbox" checked /> 🚌 Ônibus</label>
+            <label class="transport-item"><input type="checkbox" checked /> 🚇 Metrô</label>
+            <label class="transport-item"><input type="checkbox" /> 🚗 Carro</label>
+            <label class="transport-item"><input type="checkbox" /> 🚲 Bike</label>
+          </div>
+        </div>
+
+        <div class="map-preview">
+          <div class="map-placeholder">
+            <p class="map-label">📍 Visualizando raio de alcance para São Paulo</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bottom-action">
+        <button class="btn-primary" onclick="goTo('screen-home')">Aplicar Filtros</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== TELA 4: DETALHE DA VAGA ===== -->
+  <div class="screen" id="screen-vaga">
+    <div class="mobile-frame">
+      <div class="vaga-header">
+        <button class="btn-back-white" onclick="goTo('screen-home')">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <span class="app-name">Super Concursos</span>
+        <div class="avatar-sm"></div>
+      </div>
+
+      <div class="content-scroll">
+        <div class="vaga-badge-row">
+          <span class="badge-inscricao">Inscrições Abertas</span>
+          <span class="badge-date">📅 Até 24/05</span>
+        </div>
+
+        <h1 class="vaga-title">Banco do Brasil – Escriturário</h1>
+        <p class="vaga-sub">Agente Comercial • 4.000 Vagas + CR</p>
+
+        <div class="salary-card">
+          <div class="salary-label">Remuneração Inicial</div>
+          <div class="salary-value">R$ 5.436,03</div>
+          <div class="salary-extra">+ Benefícios Bancários</div>
+        </div>
+
+        <div class="trajeto-card">
+          <div class="trajeto-header">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span class="trajeto-title">Análise de Trajeto</span>
+            <a href="#" class="trajeto-link">Seu endereço: Av. Paulista, SP</a>
+          </div>
+          <div class="trajeto-options">
+            <div class="trajeto-opt green">🟢 25 min • Trânsito leve</div>
+            <div class="trajeto-opt blue">🔵 40 min • Linha 2-Verde</div>
+          </div>
+        </div>
+
+        <div class="tab-bar">
+          <button class="tab active">Sobre</button>
+          <button class="tab">Requisitos</button>
+          <button class="tab">Conteúdo</button>
+        </div>
+
+        <div class="tab-content">
+          <div class="content-section">
+            <div class="content-label">O CARGO</div>
+            <p>O Agente Comercial desempenha atividades voltadas ao atendimento ao público, comercialização de produtos e serviços bancários, além de tarefas administrativas internas. É a porta de entrada para uma carreira sólida no Banco do Brasil.</p>
+          </div>
+
+          <div class="content-section">
+            <div class="content-label">ETAPAS</div>
+            <div class="etapas-list">
+              <div class="etapa"><span class="etapa-check">✅</span> Prova Objetiva (Eliminatória)</div>
+              <div class="etapa"><span class="etapa-check">✅</span> Redação (Classificatória)</div>
+              <div class="etapa"><span class="etapa-check">✅</span> Exames Médicos e Procedimentos Admissionais</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bottom-action">
+        <button class="btn-primary" onclick="alert('Redirecionando para o site do concurso...')">
+          Inscrever-se Agora 🔗
+        </button>
+      </div>
+
+      <nav class="bottom-nav">
+        <button class="nav-item" onclick="goTo('screen-home')">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+          <span>Início</span>
+        </button>
+        <button class="nav-item active">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Editais</span>
+        </button>
+        <button class="nav-item" onclick="goTo('screen-estudos')">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          <span>Estudos</span>
+        </button>
+        <button class="nav-item" onclick="goTo('screen-salvos')">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+          <span>Salvos</span>
+        </button>
+        <button class="nav-item" onclick="goTo('screen-perfil')">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span>Perfil</span>
+        </button>
+      </nav>
+    </div>
+  </div>
+
+  <!-- ===== TELA 5: ESTUDOS ===== -->
+  <div class="screen" id="screen-estudos">
+    <div class="mobile-frame">
+      <div class="top-bar">
+        <button class="hamburger-btn" onclick="openSidebar()">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <span class="app-name">Meus Estudos</span>
+        <div class="avatar-sm" onclick="goTo('screen-perfil')" style="cursor:pointer"></div>
+      </div>
+
+      <div class="content-scroll">
+        <!-- Progresso Geral -->
+        <div class="estudos-hero">
+          <div class="estudos-hero-row">
+            <div>
+              <div class="estudos-hero-label">Progresso Semanal</div>
+              <div class="estudos-hero-value">18h <span>/ 25h</span></div>
+            </div>
+            <div class="xp-badge">+320 XP esta semana</div>
+          </div>
+          <div class="progress-bar" style="margin-top:10px"><div class="progress-fill" style="width:72%"></div></div>
+          <div class="estudos-hero-meta">
+            <span>🔥 Sequência: 7 dias</span>
+            <span>📚 12 matérias</span>
+          </div>
+        </div>
+
+        <!-- Desafio do Dia -->
+        <div class="challenge-card" style="margin-bottom:16px">
+          <div class="challenge-title">⚡ Desafio do Dia</div>
+          <div class="challenge-desc">Responda 10 questões de Direito Administrativo sem erros para ganhar +50XP.</div>
+          <div class="challenge-meta">
+            <span class="challenge-time">⏱ ~15 min</span>
+            <span class="challenge-level">Nível Médio</span>
+          </div>
+          <button class="btn-challenge">▶ Começar Agora</button>
+        </div>
+
+        <!-- Matérias em andamento -->
+        <div class="section-header">
+          <span class="section-title">Matérias em Andamento</span>
+          <a href="#" class="see-all">Ver todas</a>
+        </div>
+
+        <div class="materia-card" onclick="alert('Abrindo Direito Administrativo...')">
+          <div class="materia-icon" style="background:linear-gradient(135deg,#1e40af,#3b82f6)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="materia-info">
+            <div class="materia-name">Direito Administrativo</div>
+            <div class="materia-sub">Atos Administrativos • 24 aulas</div>
+            <div class="materia-progress-row">
+              <div class="mini-progress" style="flex:1"><div style="width:65%"></div></div>
+              <span class="materia-pct">65%</span>
+            </div>
+          </div>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+        </div>
+
+        <div class="materia-card" onclick="alert('Abrindo Português...')">
+          <div class="materia-icon" style="background:linear-gradient(135deg,#059669,#10b981)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          </div>
+          <div class="materia-info">
+            <div class="materia-name">Língua Portuguesa</div>
+            <div class="materia-sub">Interpretação de Texto • 18 aulas</div>
+            <div class="materia-progress-row">
+              <div class="mini-progress" style="flex:1"><div style="width:42%"></div></div>
+              <span class="materia-pct">42%</span>
+            </div>
+          </div>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+        </div>
+
+        <div class="materia-card" onclick="alert('Abrindo Raciocínio Lógico...')">
+          <div class="materia-icon" style="background:linear-gradient(135deg,#7c3aed,#a855f7)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+          </div>
+          <div class="materia-info">
+            <div class="materia-name">Raciocínio Lógico</div>
+            <div class="materia-sub">Lógica Proposicional • 15 aulas</div>
+            <div class="materia-progress-row">
+              <div class="mini-progress" style="flex:1"><div style="width:28%"></div></div>
+              <span class="materia-pct">28%</span>
+            </div>
+          </div>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+        </div>
+
+        <!-- Simulados Recentes -->
+        <div class="section-header" style="margin-top:8px">
+          <span class="section-title">Simulados Recentes</span>
+          <a href="#" class="see-all">Ver todos</a>
+        </div>
+
+        <div class="simulado-card">
+          <div class="simulado-header">
+            <div class="simulado-title">Simulado BB – Edição 12</div>
+            <span class="simulado-badge simulado-badge--ok">Concluído</span>
+          </div>
+          <div class="simulado-stats">
+            <div class="simulado-stat">
+              <div class="simulado-stat-val">78%</div>
+              <div class="simulado-stat-label">Acertos</div>
+            </div>
+            <div class="simulado-stat">
+              <div class="simulado-stat-val">58/74</div>
+              <div class="simulado-stat-label">Questões</div>
+            </div>
+            <div class="simulado-stat">
+              <div class="simulado-stat-val">1h 42min</div>
+              <div class="simulado-stat-label">Tempo</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="simulado-card">
+          <div class="simulado-header">
+            <div class="simulado-title">Simulado INSS – Edição 5</div>
+            <span class="simulado-badge simulado-badge--warn">Em andamento</span>
+          </div>
+          <div class="simulado-stats">
+            <div class="simulado-stat">
+              <div class="simulado-stat-val">--</div>
+              <div class="simulado-stat-label">Acertos</div>
+            </div>
+            <div class="simulado-stat">
+              <div class="simulado-stat-val">34/80</div>
+              <div class="simulado-stat-label">Questões</div>
+            </div>
+            <div class="simulado-stat">
+              <div class="simulado-stat-val">45min</div>
+              <div class="simulado-stat-label">Tempo</div>
+            </div>
+          </div>
+          <button class="btn-primary" style="margin-top:10px;padding:10px" onclick="alert('Retomando simulado...')">▶ Continuar Simulado</button>
+        </div>
+      </div>
+
+      <nav class="bottom-nav">
+        <button class="nav-item" onclick="goTo('screen-home')">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+          <span>Início</span>
+        </button>
+        <button class="nav-item" onclick="goTo('screen-filtros')">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Editais</span>
+        </button>
+        <button class="nav-item active">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          <span>Estudos</span>
+        </button>
+        <button class="nav-item" onclick="goTo('screen-salvos')">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+          <span>Salvos</span>
+        </button>
+        <button class="nav-item" onclick="goTo('screen-perfil')">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span>Perfil</span>
+        </button>
+      </nav>
+    </div>
+  </div>
+
+  <!-- ===== TELA 6: SALVOS ===== -->
+  <div class="screen" id="screen-salvos">
+    <div class="mobile-frame">
+      <div class="top-bar">
+        <button class="hamburger-btn" onclick="openSidebar()">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <span class="app-name">Concursos Salvos</span>
+        <div class="avatar-sm" onclick="goTo('screen-perfil')" style="cursor:pointer"></div>
+      </div>
+
+      <div class="content-scroll">
+
+        <!-- Resumo -->
+        <div class="salvos-summary">
+          <div class="salvos-summary-item">
+            <div class="salvos-summary-val">4</div>
+            <div class="salvos-summary-label">Salvos</div>
+          </div>
+          <div class="salvos-summary-divider"></div>
+          <div class="salvos-summary-item">
+            <div class="salvos-summary-val">2</div>
+            <div class="salvos-summary-label">Inscrições abertas</div>
+          </div>
+          <div class="salvos-summary-divider"></div>
+          <div class="salvos-summary-item">
+            <div class="salvos-summary-val">1</div>
+            <div class="salvos-summary-label">Em breve</div>
+          </div>
+        </div>
+
+        <!-- Filtro rápido -->
+        <div class="chips-row" style="margin-bottom:16px">
+          <span class="chip active">Todos</span>
+          <span class="chip">Abertos</span>
+          <span class="chip">Em breve</span>
+          <span class="chip">Encerrados</span>
+        </div>
+
+        <!-- Cards salvos -->
+        <div class="section-header">
+          <span class="section-title">Inscrições Abertas</span>
+        </div>
+
+        <div class="saved-card-full" onclick="goTo('screen-vaga')">
+          <div class="saved-card-top">
+            <div class="saved-icon bb"></div>
+            <div class="saved-info" style="flex:1">
+              <div class="saved-name">Banco do Brasil</div>
+              <div class="saved-detail">Escriturário • 4.000 Vagas</div>
+            </div>
+            <span class="saved-tag open-tag">ABERTO</span>
+          </div>
+          <div class="saved-card-bottom">
+            <span class="saved-salary-big">R$ 5.436,03</span>
+            <span class="saved-deadline">📅 Até 24/05</span>
+            <button class="btn-inscricao" onclick="event.stopPropagation(); alert('Redirecionando...')">Inscrever</button>
+          </div>
+        </div>
+
+        <div class="saved-card-full" onclick="goTo('screen-vaga')">
+          <div class="saved-card-top">
+            <div class="saved-icon trt"></div>
+            <div class="saved-info" style="flex:1">
+              <div class="saved-name">TRT 2ª Região (SP)</div>
+              <div class="saved-detail">Analista Judiciário • São Paulo</div>
+            </div>
+            <span class="saved-tag open-tag">ABERTO</span>
+          </div>
+          <div class="saved-card-bottom">
+            <span class="saved-salary-big">R$ 13.202,00</span>
+            <span class="saved-deadline">📅 Até 30/05</span>
+            <button class="btn-inscricao" onclick="event.stopPropagation(); alert('Redirecionando...')">Inscrever</button>
+          </div>
+        </div>
+
+        <div class="section-header" style="margin-top:4px">
+          <span class="section-title">Em Breve</span>
+        </div>
+
+        <div class="saved-card-full" onclick="goTo('screen-vaga')">
+          <div class="saved-card-top">
+            <div class="saved-icon rf"></div>
+            <div class="saved-info" style="flex:1">
+              <div class="saved-name">Receita Federal</div>
+              <div class="saved-detail">Auditor-Fiscal • Nacional</div>
+            </div>
+            <span class="saved-tag soon-tag">EM BREVE</span>
+          </div>
+          <div class="saved-card-bottom">
+            <span class="saved-salary-big">R$ 21.029,00</span>
+            <span class="saved-deadline">📅 Previsão: Jul/25</span>
+            <button class="btn-notify" onclick="event.stopPropagation(); alert('Notificação ativada!')">🔔 Avisar</button>
+          </div>
+        </div>
+
+        <div class="section-header" style="margin-top:4px">
+          <span class="section-title">Encerrados</span>
+        </div>
+
+        <div class="saved-card-full saved-card-full--closed" onclick="goTo('screen-vaga')">
+          <div class="saved-card-top">
+            <div class="saved-icon inss" style="background:linear-gradient(135deg,#6366f1,#4f46e5)"></div>
+            <div class="saved-info" style="flex:1">
+              <div class="saved-name">INSS</div>
+              <div class="saved-detail">Técnico do Seguro Social • 1.000 Vagas</div>
+            </div>
+            <span class="saved-tag closed-tag">ENCERRADO</span>
+          </div>
+          <div class="saved-card-bottom">
+            <span class="saved-salary-big">R$ 6.120,00</span>
+            <span class="saved-deadline" style="color:#9ca3af">📅 Encerrou 10/04</span>
+            <button class="btn-notify btn-notify--disabled" disabled>Encerrado</button>
+          </div>
+        </div>
+
+      </div>
+
+      <nav class="bottom-nav">
+        <button class="nav-item" onclick="goTo('screen-home')">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+          <span>Início</span>
+        </button>
+        <button class="nav-item" onclick="goTo('screen-filtros')">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Editais</span>
+        </button>
+        <button class="nav-item" onclick="goTo('screen-estudos')">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          <span>Estudos</span>
+        </button>
+        <button class="nav-item active">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+          <span>Salvos</span>
+        </button>
+        <button class="nav-item" onclick="goTo('screen-perfil')">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span>Perfil</span>
+        </button>
+      </nav>
+    </div>
+  </div>
+
+  <!-- ===== TELA 7: PERFIL ===== -->
+  <div class="screen" id="screen-perfil">
+    <div class="mobile-frame">
+      <div class="top-bar">
+        <button class="hamburger-btn" onclick="openSidebar()">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <span class="app-name">Super Concursos</span>
+        <div class="avatar-sm"></div>
+      </div>
+
+      <div class="content-scroll">
+        <div class="profile-hero">
+          <div class="profile-avatar"></div>
+          <h2 class="profile-name">Lucas Silveira</h2>
+          <p class="profile-level">Candidato nível Avançado • Membro Premium</p>
+          <div class="profile-badges">
+            <span class="badge-active">● PERFIL ATIVO</span>
+            <span class="badge-premium">⭐ PREMIUM</span>
+          </div>
+        </div>
+
+        <div class="profile-actions">
+          <div class="profile-action-btn" onclick="alert('Meu Currículo')">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            <span>Meu Currículo</span>
+          </div>
+          <div class="profile-action-btn" onclick="alert('Configurações')">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+            <span>Configurações</span>
+          </div>
+        </div>
+
+        <div class="section-header">
+          <span class="section-title">Vagas Inscritas</span>
+          <a href="#" class="see-all">Ver tudo</a>
+        </div>
+
+        <div class="vagas-scroll">
+          <div class="vaga-card-small federal" onclick="goTo('screen-vaga')">
+            <span class="tag-fed">FEDERAL</span>
+            <div class="vaga-card-title">Banco Central do Brasil - Analista</div>
+            <div class="vaga-date">📅 Prova: 15 Out 2024</div>
+            <div class="vaga-prog-label">Progresso nos estudos <span>65%</span></div>
+            <div class="mini-progress"><div style="width:65%"></div></div>
+          </div>
+          <div class="vaga-card-small estadual" onclick="goTo('screen-vaga')">
+            <span class="tag-est">ESTADUAL</span>
+            <div class="vaga-card-title">TSE - Técnico Judiciário</div>
+            <div class="vaga-date">📅 Prova: em breve</div>
+            <div class="vaga-prog-label">Progresso <span>30%</span></div>
+            <div class="mini-progress"><div style="width:30%"></div></div>
+          </div>
+        </div>
+
+        <div class="section-header">
+          <span class="section-title">Vagas Salvas</span>
+          <a href="#" class="see-all" onclick="goTo('screen-salvos')">Ver tudo</a>
+        </div>
+
+        <div class="saved-card" onclick="goTo('screen-vaga')">
+          <div class="saved-icon rf"></div>
+          <div class="saved-info">
+            <div class="saved-name">Receita Federal</div>
+            <div class="saved-detail">Auditor-Fiscal • Nacional</div>
+            <div class="saved-status">INSCRIÇÕES EM BREVE</div>
+          </div>
+          <div class="saved-salary">R$ 21.029</div>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+        </div>
+
+        <div class="saved-card" onclick="goTo('screen-vaga')">
+          <div class="saved-icon trt"></div>
+          <div class="saved-info">
+            <div class="saved-name">TRT 2ª Região (SP)</div>
+            <div class="saved-detail">Analista Judiciário • São Paulo, SP</div>
+            <div class="saved-status open">EDITAL ABERTO</div>
+          </div>
+          <div class="saved-salary">R$ 13.202</div>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+        </div>
+
+        <div class="desempenho-card">
+          <div class="desempenho-circle">
+            <svg viewBox="0 0 36 36" width="80" height="80">
+              <circle cx="18" cy="18" r="15.9" fill="none" stroke="#e5e7eb" stroke-width="3"/>
+              <circle cx="18" cy="18" r="15.9" fill="none" stroke="#10b981" stroke-width="3" stroke-dasharray="82 100" stroke-linecap="round" transform="rotate(-90 18 18)"/>
+              <text x="18" y="22" text-anchor="middle" font-size="8" font-weight="bold" fill="#111">82%</text>
+            </svg>
+          </div>
+          <div class="desempenho-info">
+            <div class="desempenho-title">Desempenho Geral</div>
+            <div class="desempenho-desc">Você está acima de 92% dos candidatos para cargos fiscais este mês. Continue assim!</div>
+          </div>
+        </div>
+
+        <div class="premium-card">
+          <div class="premium-icon">🏆</div>
+          <div>
+            <div class="premium-title">Premium Plus</div>
+            <div class="premium-desc">Acesso ilimitado a mentorias e simulados exclusivos.</div>
+          </div>
+          <button class="btn-premium">GERENCIAR</button>
+        </div>
+      </div>
+
+      <nav class="bottom-nav">
+        <button class="nav-item" onclick="goTo('screen-home')">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+          <span>Início</span>
+        </button>
+        <button class="nav-item" onclick="goTo('screen-filtros')">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Editais</span>
+        </button>
+        <button class="nav-item" onclick="goTo('screen-estudos')">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          <span>Estudos</span>
+        </button>
+        <button class="nav-item" onclick="goTo('screen-salvos')">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+          <span>Salvos</span>
+        </button>
+        <button class="nav-item active">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span>Perfil</span>
+        </button>
+      </nav>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
