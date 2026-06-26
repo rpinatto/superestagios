@@ -1,0 +1,159 @@
+<div class="screen" id="screen-estudos">
+  <div class="mobile-frame">
+    <div class="top-bar">
+      <button class="hamburger-btn" onclick="openSidebar()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <span class="app-name">Meus Estudos</span>
+      <div class="avatar-sm" onclick="goTo('screen-perfil')" style="cursor:pointer"></div>
+    </div>
+
+    <div class="content-scroll">
+      <div class="estudos-hero">
+        <div class="estudos-hero-row">
+          <div>
+            <div class="estudos-hero-label">Progresso Semanal</div>
+            <div class="estudos-hero-value">18h <span>/ 25h</span></div>
+          </div>
+          <div class="xp-badge">+320 XP esta semana</div>
+        </div>
+        <div class="progress-bar" style="margin-top:10px"><div class="progress-fill" style="width:72%"></div></div>
+        <div class="estudos-hero-meta">
+          <span>🔥 Sequência: 7 dias</span>
+          <span>📚 12 matérias</span>
+        </div>
+      </div>
+
+      <div class="challenge-card" style="margin-bottom:16px">
+        <div class="challenge-title">⚡ Desafio do Dia</div>
+        <div class="challenge-desc">Responda 10 questões de Direito Administrativo sem erros para ganhar +50XP.</div>
+        <div class="challenge-meta">
+          <span class="challenge-time">⏱ ~15 min</span>
+          <span class="challenge-level">Nível Médio</span>
+        </div>
+        <button class="btn-challenge">▶ Começar Agora</button>
+      </div>
+
+      <div class="section-header">
+        <span class="section-title">Matérias em Andamento</span>
+        <a href="#" class="see-all">Ver todas</a>
+      </div>
+
+      <div class="materia-card" onclick="alert('Abrindo Direito Administrativo...')">
+        <div class="materia-icon" style="background:linear-gradient(135deg,#1e40af,#3b82f6)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="materia-info">
+          <div class="materia-name">Direito Administrativo</div>
+          <div class="materia-sub">Atos Administrativos • 24 aulas</div>
+          <div class="materia-progress-row">
+            <div class="mini-progress" style="flex:1"><div style="width:65%"></div></div>
+            <span class="materia-pct">65%</span>
+          </div>
+        </div>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+
+      <div class="materia-card" onclick="alert('Abrindo Português...')">
+        <div class="materia-icon" style="background:linear-gradient(135deg,#059669,#10b981)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        </div>
+        <div class="materia-info">
+          <div class="materia-name">Língua Portuguesa</div>
+          <div class="materia-sub">Interpretação de Texto • 18 aulas</div>
+          <div class="materia-progress-row">
+            <div class="mini-progress" style="flex:1"><div style="width:42%"></div></div>
+            <span class="materia-pct">42%</span>
+          </div>
+        </div>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+
+      <div class="materia-card" onclick="alert('Abrindo Raciocínio Lógico...')">
+        <div class="materia-icon" style="background:linear-gradient(135deg,#7c3aed,#a855f7)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+        </div>
+        <div class="materia-info">
+          <div class="materia-name">Raciocínio Lógico</div>
+          <div class="materia-sub">Lógica Proposicional • 15 aulas</div>
+          <div class="materia-progress-row">
+            <div class="mini-progress" style="flex:1"><div style="width:28%"></div></div>
+            <span class="materia-pct">28%</span>
+          </div>
+        </div>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+
+      <div class="section-header" style="margin-top:8px">
+        <span class="section-title">Simulados Recentes</span>
+        <a href="#" class="see-all">Ver todos</a>
+      </div>
+
+      <div class="simulado-card">
+        <div class="simulado-header">
+          <div class="simulado-title">Simulado BB – Edição 12</div>
+          <span class="simulado-badge simulado-badge--ok">Concluído</span>
+        </div>
+        <div class="simulado-stats">
+          <div class="simulado-stat">
+            <div class="simulado-stat-val">78%</div>
+            <div class="simulado-stat-label">Acertos</div>
+          </div>
+          <div class="simulado-stat">
+            <div class="simulado-stat-val">58/74</div>
+            <div class="simulado-stat-label">Questões</div>
+          </div>
+          <div class="simulado-stat">
+            <div class="simulado-stat-val">1h 42min</div>
+            <div class="simulado-stat-label">Tempo</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="simulado-card">
+        <div class="simulado-header">
+          <div class="simulado-title">Simulado INSS – Edição 5</div>
+          <span class="simulado-badge simulado-badge--warn">Em andamento</span>
+        </div>
+        <div class="simulado-stats">
+          <div class="simulado-stat">
+            <div class="simulado-stat-val">--</div>
+            <div class="simulado-stat-label">Acertos</div>
+          </div>
+          <div class="simulado-stat">
+            <div class="simulado-stat-val">34/80</div>
+            <div class="simulado-stat-label">Questões</div>
+          </div>
+          <div class="simulado-stat">
+            <div class="simulado-stat-val">45min</div>
+            <div class="simulado-stat-label">Tempo</div>
+          </div>
+        </div>
+        <button class="btn-primary" style="margin-top:10px;padding:10px" onclick="alert('Retomando simulado...')">▶ Continuar Simulado</button>
+      </div>
+    </div>
+
+    <nav class="bottom-nav">
+      <button class="nav-item" onclick="goTo('screen-home')">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+        <span>Início</span>
+      </button>
+      <button class="nav-item" onclick="goTo('screen-filtros')">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <span>Editais</span>
+      </button>
+      <button class="nav-item active">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        <span>Estudos</span>
+      </button>
+      <button class="nav-item" onclick="goTo('screen-salvos')">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+        <span>Salvos</span>
+      </button>
+      <button class="nav-item" onclick="goTo('screen-perfil')">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <span>Perfil</span>
+      </button>
+    </nav>
+  </div>
+</div>

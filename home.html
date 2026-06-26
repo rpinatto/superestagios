@@ -1,0 +1,102 @@
+<div class="screen" id="screen-home">
+  <div class="mobile-frame">
+    <div class="top-bar">
+      <button class="hamburger-btn" onclick="openSidebar()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <span class="app-name">Super Concursos</span>
+      <div class="avatar-sm" onclick="goTo('screen-perfil')" style="cursor:pointer"></div>
+    </div>
+
+    <div class="content-scroll">
+      <div class="greeting-section">
+        <div class="streak-badge">🔥 7 DIAS</div>
+        <h2 class="greeting">BEM-VINDO DE VOLTA<br><strong>Olá, Gabriel!</strong></h2>
+        <p class="sub-greeting">Seu desempenho está 15% acima da média esta semana. Mantenha o foco!</p>
+
+        <div class="progress-card">
+          <div class="progress-label">
+            <span>⏰ Progresso Semanal</span>
+            <span class="progress-time">18h de 25h</span>
+          </div>
+          <div class="progress-bar"><div class="progress-fill" style="width:72%"></div></div>
+        </div>
+      </div>
+
+      <div class="section-header">
+        <span class="section-title">Concursos em Destaque</span>
+        <a href="#" class="see-all">Ver Todos</a>
+      </div>
+
+      <div class="cards-scroll">
+        <div class="highlight-card blue" onclick="goTo('screen-vaga')">
+          <span class="tag-edital">EDITAL ABERTO</span>
+          <div class="card-title">Polícia Federal</div>
+          <div class="card-sub">Agente e Escrivão • R$ 12.522,50</div>
+        </div>
+        <div class="highlight-card orange" onclick="goTo('screen-vaga')">
+          <span class="tag-inscricao">INSCRIÇÃO</span>
+          <div class="card-title">Receita Federal</div>
+          <div class="card-sub">Auditor Fiscal</div>
+        </div>
+      </div>
+
+      <div class="section-header">
+        <span class="section-title">Oportunidades para Você</span>
+        <a href="#" class="see-all">Ver Tudo →</a>
+      </div>
+
+      <div class="opp-list">
+        <div class="opp-card" onclick="goTo('screen-vaga')">
+          <div class="opp-icon bb"></div>
+          <div class="opp-info">
+            <div class="opp-name">Banco do Brasil</div>
+            <div class="opp-detail">Escriturário • 2.000 Vagas</div>
+            <div class="opp-salary">R$ 5.436,00</div>
+            <div class="opp-level">Nível Médio</div>
+          </div>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+        </div>
+        <div class="opp-card" onclick="goTo('screen-vaga')">
+          <div class="opp-icon inss"></div>
+          <div class="opp-info">
+            <div class="opp-name">INSS</div>
+            <div class="opp-detail">Técnico Seguro Social • 1.000 Vagas</div>
+            <div class="opp-salary">R$ 6.120,00</div>
+            <div class="opp-level">Nível Médio</div>
+          </div>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+        </div>
+      </div>
+
+      <div class="challenge-card">
+        <div class="challenge-title">Desafio do Dia</div>
+        <div class="challenge-desc">Responda 10 questões de Direito Administrativo sem erros para ganhar +50XP.</div>
+        <button class="btn-challenge" onclick="goTo('screen-estudos')">▶ Começar Agora</button>
+      </div>
+    </div>
+
+    <nav class="bottom-nav">
+      <button class="nav-item active" onclick="goTo('screen-home')">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+        <span>Início</span>
+      </button>
+      <button class="nav-item" onclick="goTo('screen-filtros')">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <span>Editais</span>
+      </button>
+      <button class="nav-item" onclick="goTo('screen-estudos')">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        <span>Estudos</span>
+      </button>
+      <button class="nav-item" onclick="goTo('screen-salvos')">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+        <span>Salvos</span>
+      </button>
+      <button class="nav-item" onclick="goTo('screen-perfil')">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <span>Perfil</span>
+      </button>
+    </nav>
+  </div>
+</div>

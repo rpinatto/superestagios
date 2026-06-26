@@ -1,0 +1,129 @@
+<div class="screen" id="screen-perfil">
+  <div class="mobile-frame">
+    <div class="top-bar">
+      <button class="hamburger-btn" onclick="openSidebar()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <span class="app-name">Super Concursos</span>
+      <div class="avatar-sm"></div>
+    </div>
+
+    <div class="content-scroll">
+      <div class="profile-hero">
+        <div class="profile-avatar"></div>
+        <h2 class="profile-name">Lucas Silveira</h2>
+        <p class="profile-level">Candidato nível Avançado • Membro Premium</p>
+        <div class="profile-badges">
+          <span class="badge-active">● PERFIL ATIVO</span>
+          <span class="badge-premium">⭐ PREMIUM</span>
+        </div>
+      </div>
+
+      <div class="profile-actions">
+        <div class="profile-action-btn" onclick="alert('Meu Currículo')">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          <span>Meu Currículo</span>
+        </div>
+        <div class="profile-action-btn" onclick="alert('Configurações')">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          <span>Configurações</span>
+        </div>
+      </div>
+
+      <div class="section-header">
+        <span class="section-title">Vagas Inscritas</span>
+        <a href="#" class="see-all">Ver tudo</a>
+      </div>
+
+      <div class="vagas-scroll">
+        <div class="vaga-card-small federal" onclick="goTo('screen-vaga')">
+          <span class="tag-fed">FEDERAL</span>
+          <div class="vaga-card-title">Banco Central do Brasil - Analista</div>
+          <div class="vaga-date">📅 Prova: 15 Out 2024</div>
+          <div class="vaga-prog-label">Progresso nos estudos <span>65%</span></div>
+          <div class="mini-progress"><div style="width:65%"></div></div>
+        </div>
+        <div class="vaga-card-small estadual" onclick="goTo('screen-vaga')">
+          <span class="tag-est">ESTADUAL</span>
+          <div class="vaga-card-title">TSE - Técnico Judiciário</div>
+          <div class="vaga-date">📅 Prova: em breve</div>
+          <div class="vaga-prog-label">Progresso <span>30%</span></div>
+          <div class="mini-progress"><div style="width:30%"></div></div>
+        </div>
+      </div>
+
+      <div class="section-header">
+        <span class="section-title">Vagas Salvas</span>
+        <a href="#" class="see-all" onclick="goTo('screen-salvos')">Ver tudo</a>
+      </div>
+
+      <div class="saved-card" onclick="goTo('screen-vaga')">
+        <div class="saved-icon rf"></div>
+        <div class="saved-info">
+          <div class="saved-name">Receita Federal</div>
+          <div class="saved-detail">Auditor-Fiscal • Nacional</div>
+          <div class="saved-status">INSCRIÇÕES EM BREVE</div>
+        </div>
+        <div class="saved-salary">R$ 21.029</div>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+
+      <div class="saved-card" onclick="goTo('screen-vaga')">
+        <div class="saved-icon trt"></div>
+        <div class="saved-info">
+          <div class="saved-name">TRT 2ª Região (SP)</div>
+          <div class="saved-detail">Analista Judiciário • São Paulo, SP</div>
+          <div class="saved-status open">EDITAL ABERTO</div>
+        </div>
+        <div class="saved-salary">R$ 13.202</div>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+
+      <div class="desempenho-card">
+        <div class="desempenho-circle">
+          <svg viewBox="0 0 36 36" width="80" height="80">
+            <circle cx="18" cy="18" r="15.9" fill="none" stroke="#e5e7eb" stroke-width="3"/>
+            <circle cx="18" cy="18" r="15.9" fill="none" stroke="#10b981" stroke-width="3" stroke-dasharray="82 100" stroke-linecap="round" transform="rotate(-90 18 18)"/>
+            <text x="18" y="22" text-anchor="middle" font-size="8" font-weight="bold" fill="#111">82%</text>
+          </svg>
+        </div>
+        <div class="desempenho-info">
+          <div class="desempenho-title">Desempenho Geral</div>
+          <div class="desempenho-desc">Você está acima de 92% dos candidatos para cargos fiscais este mês. Continue assim!</div>
+        </div>
+      </div>
+
+      <div class="premium-card">
+        <div class="premium-icon">🏆</div>
+        <div>
+          <div class="premium-title">Premium Plus</div>
+          <div class="premium-desc">Acesso ilimitado a mentorias e simulados exclusivos.</div>
+        </div>
+        <button class="btn-premium">GERENCIAR</button>
+      </div>
+    </div>
+
+    <nav class="bottom-nav">
+      <button class="nav-item" onclick="goTo('screen-home')">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+        <span>Início</span>
+      </button>
+      <button class="nav-item" onclick="goTo('screen-filtros')">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <span>Editais</span>
+      </button>
+      <button class="nav-item" onclick="goTo('screen-estudos')">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        <span>Estudos</span>
+      </button>
+      <button class="nav-item" onclick="goTo('screen-salvos')">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+        <span>Salvos</span>
+      </button>
+      <button class="nav-item active">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <span>Perfil</span>
+      </button>
+    </nav>
+  </div>
+</div>
