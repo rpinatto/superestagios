@@ -31,8 +31,24 @@ function navTo(screenId) {
 }
 
 // ============================================================
+// Modo Escuro
+// ============================================================
+function toggleDarkMode(enabled) {
+  document.body.classList.toggle('dark', enabled);
+  localStorage.setItem('darkMode', enabled ? '1' : '0');
+
+  // Sincroniza o toggle na tela de config caso tenha sido acionado por outra fonte
+  const toggle = document.getElementById('dark-mode-toggle');
+  if (toggle) toggle.checked = enabled;
+}
+
+function applyStoredTheme() {
+  const stored = localStorage.getItem('darkMode');
+  if (stored === '1') toggleDarkMode(true);
+}
+
+// ============================================================
 // Carregamento das telas
-// Cada tela fica em seu próprio arquivo HTML.
 // ============================================================
 const SCREENS = [
   'login.html',
@@ -42,6 +58,7 @@ const SCREENS = [
   'estudos.html',
   'salvos.html',
   'perfil.html',
+  'config.html',
 ];
 
 async function loadScreens() {
@@ -53,6 +70,7 @@ async function loadScreens() {
     container.insertAdjacentHTML('beforeend', html);
   }
 
+  applyStoredTheme();
   initInteractions();
 }
 
